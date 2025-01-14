@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    table {
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .container {
+      width: 95%;
+      margin: auto;
+    }
+    .images-section img {
+      max-width: 500px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+    .best-worst-section table {
+      margin-top: 1rem;
+    }
+    .best-worst-section th {
+      background-color: #f9f9f9;
+    }
+    .best-worst-section td {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Analysis Report</h1>
+
+  <!-- 1. Summary Statistics -->
+  <h2>1. Summary Statistics</h2>
+  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        
+        <th>Spencer Consulting_base_grade</th>
+        
+        <th>Spencer Consulting_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      <tr>
+        
+        
+        <td>count</td>
+
+        
+          
+          <td>
+            
+              16.00
+            
+          </td>
+        
+          
+          <td>
+            
+              16.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>mean</td>
+
+        
+          
+          <td>
+            
+              4.50
+            
+          </td>
+        
+          
+          <td>
+            
+              4.12
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>std</td>
+
+        
+          
+          <td>
+            
+              0.52
+            
+          </td>
+        
+          
+          <td>
+            
+              0.34
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>min</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>25%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>50%</td>
+
+        
+          
+          <td>
+            
+              4.50
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>75%</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>max</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 2. Correlation Matrix -->
+  <h2>2. Correlation Matrix</h2>
+  <p>The correlation matrix for the grade columns:</p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        
+        <th>Spencer Consulting_base_grade</th>
+        
+        <th>Spencer Consulting_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Spencer Consulting_base_grade</strong></td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+          
+          <td>
+            
+              0.38
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        <td><strong>Spencer Consulting_fine_tuned_grade</strong></td>
+        
+          
+          <td>
+            
+              0.38
+            
+          </td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 3. Visualizations -->
+  <h2>3. Visualizations</h2>
+  <div class="images-section">
+    <h3>Histograms</h3>
+    
+    <div>
+      <p><strong>Spencer Consulting_base_grade</strong></p>
+      <img src="..\data\processed/Spencer Consulting_base_grade_hist.png" alt="Histogram of Spencer Consulting_base_grade">
+    </div>
+    
+    <div>
+      <p><strong>Spencer Consulting_fine_tuned_grade</strong></p>
+      <img src="..\data\processed/Spencer Consulting_fine_tuned_grade_hist.png" alt="Histogram of Spencer Consulting_fine_tuned_grade">
+    </div>
+    
+
+    <h3>Boxplot of All Grades</h3>
+    <p>Distribution of the listed grade columns:</p>
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+
+    <h3>Correlation Heatmap</h3>
+    <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
+  </div>
+
+  <!-- 4. Best & Worst Cases -->
+  <h2>4. Best & Worst Cases</h2>
+  <div class="best-worst-section">
+    
+      <h3>Model Column: <em>Spencer Consulting_base_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría más información sobre alguno?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría más información sobre alguno?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría saber más?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Tenemos un ciclo de cursos para un Reset Mental. ¿Qué habilidades te gustaría desarrollar?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Claro, tenemos cursos como "Coaching, Magia y Transformación" y "PNL Aplicada". ¿Buscas algo específico?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. ¿Qué habilidades te gustaría desarrollar? Te puedo contar sobre nuestros cursos y talleres.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+      <h3>Model Column: <em>Spencer Consulting_fine_tuned_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+  </div>
+
+</div>
+</body>
+</html>

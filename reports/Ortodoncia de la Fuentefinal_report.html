@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    table {
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .container {
+      width: 95%;
+      margin: auto;
+    }
+    .images-section img {
+      max-width: 500px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+    .best-worst-section table {
+      margin-top: 1rem;
+    }
+    .best-worst-section th {
+      background-color: #f9f9f9;
+    }
+    .best-worst-section td {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Analysis Report</h1>
+
+  <!-- 1. Summary Statistics -->
+  <h2>1. Summary Statistics</h2>
+  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        
+        <th>Ortodoncia de la Fuente_base_grade</th>
+        
+        <th>Ortodoncia de la Fuente_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      <tr>
+        
+        
+        <td>count</td>
+
+        
+          
+          <td>
+            
+              48.00
+            
+          </td>
+        
+          
+          <td>
+            
+              48.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>mean</td>
+
+        
+          
+          <td>
+            
+              4.42
+            
+          </td>
+        
+          
+          <td>
+            
+              3.96
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>std</td>
+
+        
+          
+          <td>
+            
+              0.50
+            
+          </td>
+        
+          
+          <td>
+            
+              0.68
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>min</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              2.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>25%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>50%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>75%</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>max</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 2. Correlation Matrix -->
+  <h2>2. Correlation Matrix</h2>
+  <p>The correlation matrix for the grade columns:</p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        
+        <th>Ortodoncia de la Fuente_base_grade</th>
+        
+        <th>Ortodoncia de la Fuente_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Ortodoncia de la Fuente_base_grade</strong></td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+          
+          <td>
+            
+              -0.14
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        <td><strong>Ortodoncia de la Fuente_fine_tuned_grade</strong></td>
+        
+          
+          <td>
+            
+              -0.14
+            
+          </td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 3. Visualizations -->
+  <h2>3. Visualizations</h2>
+  <div class="images-section">
+    <h3>Histograms</h3>
+    
+    <div>
+      <p><strong>Ortodoncia de la Fuente_base_grade</strong></p>
+      <img src="..\data\processed/Ortodoncia de la Fuente_base_grade_hist.png" alt="Histogram of Ortodoncia de la Fuente_base_grade">
+    </div>
+    
+    <div>
+      <p><strong>Ortodoncia de la Fuente_fine_tuned_grade</strong></p>
+      <img src="..\data\processed/Ortodoncia de la Fuente_fine_tuned_grade_hist.png" alt="Histogram of Ortodoncia de la Fuente_fine_tuned_grade">
+    </div>
+    
+
+    <h3>Boxplot of All Grades</h3>
+    <p>Distribution of the listed grade columns:</p>
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+
+    <h3>Correlation Heatmap</h3>
+    <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
+  </div>
+
+  <!-- 4. Best & Worst Cases -->
+  <h2>4. Best & Worst Cases</h2>
+  <div class="best-worst-section">
+    
+      <h3>Model Column: <em>Ortodoncia de la Fuente_base_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿tienen tratamientos de ortodoncia?</td>
+            <td>Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, ¿qué me pueden decir sobre los implantes dentales?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+      <h3>Model Column: <em>Ortodoncia de la Fuente_fine_tuned_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, quiero saber más sobre los tratamientos de estética facial.</td>
+            <td>Ofrecemos tratamientos de estética facial como rinomodelación y aumento de labios. Las evaluaciones son gratuitas. ¿Te gustaría agendar una cita?</td>
+            <td>Ofrecemos una variedad de tratamientos de estética facial, incluyendo rinomodelación, aumento de pómulos, aumento de labios y relleno de ojeras. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, quiero saber más sobre los tratamientos de estética facial.</td>
+            <td>Ofrecemos tratamientos de estética facial como rinomodelación y aumento de labios. Las evaluaciones son gratuitas. ¿Te gustaría agendar una cita?</td>
+            <td>Realizamos diversos tratamientos de estética facial, como rinomodelación, aumento de labios y relleno de ojeras. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, quiero saber más sobre los tratamientos de estética facial.</td>
+            <td>Ofrecemos tratamientos de estética facial como rinomodelación y aumento de labios. Las evaluaciones son gratuitas. ¿Te gustaría agendar una cita?</td>
+            <td>Ofrecemos una variedad de tratamientos de estética facial, incluyendo rinomodelación, aumento de labios, y relleno de ojeras, entre otros. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>2</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos tratamientos de ortodoncia en Calama para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos tratamientos de ortodoncia en Calama para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia para alinear dientes de forma precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+  </div>
+
+</div>
+</body>
+</html>

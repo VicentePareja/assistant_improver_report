@@ -16,6 +16,7 @@ Usage:
 import os
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader
+from src.parameters import NAME_OF_PROJECT
 
 
 class ReportGenerator:
@@ -67,7 +68,7 @@ class ReportGenerator:
 
         # Template and final output
         self.template_file = "report_template.html"
-        self.output_file = os.path.join(self.reports_dir, "final_report.html")
+        self.output_file = os.path.join(self.reports_dir, f"{NAME_OF_PROJECT}final_report.html")
 
         # ---------------------------------------------------------------------
         # 3. DataFrames (to be loaded in load_data())

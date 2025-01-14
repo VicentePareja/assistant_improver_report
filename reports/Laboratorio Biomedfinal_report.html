@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    table {
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .container {
+      width: 95%;
+      margin: auto;
+    }
+    .images-section img {
+      max-width: 500px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+    .best-worst-section table {
+      margin-top: 1rem;
+    }
+    .best-worst-section th {
+      background-color: #f9f9f9;
+    }
+    .best-worst-section td {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Analysis Report</h1>
+
+  <!-- 1. Summary Statistics -->
+  <h2>1. Summary Statistics</h2>
+  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        
+        <th>Laboratorio Biomed_base_grade</th>
+        
+        <th>Laboratorio Biomed_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      <tr>
+        
+        
+        <td>count</td>
+
+        
+          
+          <td>
+            
+              144.00
+            
+          </td>
+        
+          
+          <td>
+            
+              144.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>mean</td>
+
+        
+          
+          <td>
+            
+              4.81
+            
+          </td>
+        
+          
+          <td>
+            
+              4.60
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>std</td>
+
+        
+          
+          <td>
+            
+              0.52
+            
+          </td>
+        
+          
+          <td>
+            
+              0.65
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>min</td>
+
+        
+          
+          <td>
+            
+              3.00
+            
+          </td>
+        
+          
+          <td>
+            
+              3.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>25%</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>50%</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>75%</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>max</td>
+
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 2. Correlation Matrix -->
+  <h2>2. Correlation Matrix</h2>
+  <p>The correlation matrix for the grade columns:</p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        
+        <th>Laboratorio Biomed_base_grade</th>
+        
+        <th>Laboratorio Biomed_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Laboratorio Biomed_base_grade</strong></td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+          
+          <td>
+            
+              0.27
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        <td><strong>Laboratorio Biomed_fine_tuned_grade</strong></td>
+        
+          
+          <td>
+            
+              0.27
+            
+          </td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 3. Visualizations -->
+  <h2>3. Visualizations</h2>
+  <div class="images-section">
+    <h3>Histograms</h3>
+    
+    <div>
+      <p><strong>Laboratorio Biomed_base_grade</strong></p>
+      <img src="..\data\processed/Laboratorio Biomed_base_grade_hist.png" alt="Histogram of Laboratorio Biomed_base_grade">
+    </div>
+    
+    <div>
+      <p><strong>Laboratorio Biomed_fine_tuned_grade</strong></p>
+      <img src="..\data\processed/Laboratorio Biomed_fine_tuned_grade_hist.png" alt="Histogram of Laboratorio Biomed_fine_tuned_grade">
+    </div>
+    
+
+    <h3>Boxplot of All Grades</h3>
+    <p>Distribution of the listed grade columns:</p>
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+
+    <h3>Correlation Heatmap</h3>
+    <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
+  </div>
+
+  <!-- 4. Best & Worst Cases -->
+  <h2>4. Best & Worst Cases</h2>
+  <div class="best-worst-section">
+    
+      <h3>Model Column: <em>Laboratorio Biomed_base_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Qué necesito para realizar el examen de glucosa en orina?</td>
+            <td>Para conocer los requisitos del examen de glucosa en orina, por favor permíteme consultar la información. 😊 (Aquí se usaría la función consultar_tabla y se entregaría la información resumida)</td>
+            <td>Realizamos diversos tipos de exámenes de orina. Para brindarte información precisa, ¿podrías especificar el examen de orina que deseas realizar? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Qué necesito para realizar el examen de glucosa en orina?</td>
+            <td>Para conocer los requisitos del examen de glucosa en orina, por favor permíteme consultar la información. 😊 (Aquí se usaría la función consultar_tabla y se entregaría la información resumida)</td>
+            <td>Realizamos diversos tipos de exámenes de orina. Para brindarte información precisa, ¿podrías especificar el examen de orina que deseas realizar? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Qué necesito para realizar el examen de glucosa en orina?</td>
+            <td>Para conocer los requisitos del examen de glucosa en orina, por favor permíteme consultar la información. 😊 (Aquí se usaría la función consultar_tabla y se entregaría la información resumida)</td>
+            <td>Realizamos diversos tipos de exámenes de orina. Para brindarte información precisa, ¿podrías especificar el examen de orina que deseas realizar? 😊</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+      <h3>Model Column: <em>Laboratorio Biomed_fine_tuned_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>Sucursal Centro (Benavente 474): lun a vie toma de muestras 07:30-16:00, atención hasta 16:30; sáb toma de muestras hasta 12:30, atención hasta 13:00. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>Sucursal Centro (Benavente 474): lun a vie toma de muestras 07:30-16:00, atención hasta 16:30; sáb toma de muestras hasta 12:30, atención hasta 13:00. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito saber el horario de atención de la sucursal Centro en Puerto Montt.</td>
+            <td>¡Hola! El horario de atención de nuestra Sucursal Centro en Puerto Montt (Benavente 474) es de lunes a viernes de 07:30 a 16:30 horas para atención al cliente y hasta las 16:00 horas para toma de muestras. Los sábados, atención al cliente de 08:00 a 13:00 y toma de muestras hasta las 12:30. ¿Puedo ayudarte en algo más? 😊</td>
+            <td>Sucursal Centro (Benavente 474): lun a vie toma de muestras 07:30-16:00, atención hasta 16:30; sáb toma de muestras hasta 12:30, atención hasta 13:00. ¿Puedo ayudarte en algo más? 😊</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Cuáles son los patógenos que incluye el PCR-ETS?</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Candida Albicans Chlamydia Trachomatis Gardnerella Vaginalis Mycoplasma Genitalium Mycoplasma Hominis Treponema Pallidum Trichomonas Vaginalis Ureaplasma Parvum Ureaplasma Urealyticum Virus Herpes simple I y II Neisseria Gonorrhoeae</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Candida Albicans Chlamydia Trachomatis Gardnerella Vaginalis Mycoplasma Genitalium Mycoplasma Hominis Neisseria Gonorrhoeae Treponema Pallidum Trichomonas Vaginalis Ureaplasma Parvum Ureaplasma Urealyticum</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Cuáles son los patógenos que incluye el PCR-ETS?</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Candida Albicans Chlamydia Trachomatis Gardnerella Vaginalis Mycoplasma Genitalium Mycoplasma Hominis Treponema Pallidum Trichomonas Vaginalis Ureaplasma Parvum Ureaplasma Urealyticum Virus Herpes simple I y II Neisseria Gonorrhoeae</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Chlamydia Trachomatis Neisseria Gonorrhoeae Mycoplasma Genitalium Mycoplasma Hominis Ureaplasma Parvum Ureaplasma Urealyticum Trichomonas Vaginalis Candida Albicans</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>¿Cuáles son los patógenos que incluye el PCR-ETS?</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Candida Albicans Chlamydia Trachomatis Gardnerella Vaginalis Mycoplasma Genitalium Mycoplasma Hominis Treponema Pallidum Trichomonas Vaginalis Ureaplasma Parvum Ureaplasma Urealyticum Virus Herpes simple I y II Neisseria Gonorrhoeae</td>
+            <td>En Laboratorio Biomed, nuestro PCR o Panel ETS incluye: Candida Albicans Chlamydia Trachomatis Gardnerella Vaginalis Mycoplasma Genitalium Mycoplasma Hominis Neisseria Gonorrhoeae Treponema Pallidum Trichomonas Vaginalis Ureaplasma Parvum Ureaplasma Urealyticum</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+  </div>
+
+</div>
+</body>
+</html>

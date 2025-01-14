@@ -1,4 +1,4 @@
-# main.py (placed in the root of assistant_improver_report)
+# -*- coding: utf-8 -*-
 import os
 
 # Adjust if these are in src/

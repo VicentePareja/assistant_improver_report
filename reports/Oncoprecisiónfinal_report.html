@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    table {
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .container {
+      width: 95%;
+      margin: auto;
+    }
+    .images-section img {
+      max-width: 500px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+    .best-worst-section table {
+      margin-top: 1rem;
+    }
+    .best-worst-section th {
+      background-color: #f9f9f9;
+    }
+    .best-worst-section td {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Analysis Report</h1>
+
+  <!-- 1. Summary Statistics -->
+  <h2>1. Summary Statistics</h2>
+  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        
+        <th>Oncoprecisión_base_grade</th>
+        
+        <th>Oncoprecisión_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      <tr>
+        
+        
+        <td>count</td>
+
+        
+          
+          <td>
+            
+              24.00
+            
+          </td>
+        
+          
+          <td>
+            
+              24.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>mean</td>
+
+        
+          
+          <td>
+            
+              3.92
+            
+          </td>
+        
+          
+          <td>
+            
+              4.04
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>std</td>
+
+        
+          
+          <td>
+            
+              0.28
+            
+          </td>
+        
+          
+          <td>
+            
+              0.20
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>min</td>
+
+        
+          
+          <td>
+            
+              3.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>25%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>50%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>75%</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        
+        
+        <td>max</td>
+
+        
+          
+          <td>
+            
+              4.00
+            
+          </td>
+        
+          
+          <td>
+            
+              5.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 2. Correlation Matrix -->
+  <h2>2. Correlation Matrix</h2>
+  <p>The correlation matrix for the grade columns:</p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        
+        <th>Oncoprecisión_base_grade</th>
+        
+        <th>Oncoprecisión_fine_tuned_grade</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>Oncoprecisión_base_grade</strong></td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+          
+          <td>
+            
+              0.06
+            
+          </td>
+        
+      </tr>
+      
+      <tr>
+        <td><strong>Oncoprecisión_fine_tuned_grade</strong></td>
+        
+          
+          <td>
+            
+              0.06
+            
+          </td>
+        
+          
+          <td>
+            
+              1.00
+            
+          </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- 3. Visualizations -->
+  <h2>3. Visualizations</h2>
+  <div class="images-section">
+    <h3>Histograms</h3>
+    
+    <div>
+      <p><strong>Oncoprecisión_base_grade</strong></p>
+      <img src="..\data\processed/Oncoprecisión_base_grade_hist.png" alt="Histogram of Oncoprecisión_base_grade">
+    </div>
+    
+    <div>
+      <p><strong>Oncoprecisión_fine_tuned_grade</strong></p>
+      <img src="..\data\processed/Oncoprecisión_fine_tuned_grade_hist.png" alt="Histogram of Oncoprecisión_fine_tuned_grade">
+    </div>
+    
+
+    <h3>Boxplot of All Grades</h3>
+    <p>Distribution of the listed grade columns:</p>
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+
+    <h3>Correlation Heatmap</h3>
+    <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
+  </div>
+
+  <!-- 4. Best & Worst Cases -->
+  <h2>4. Best & Worst Cases</h2>
+  <div class="best-worst-section">
+    
+      <h3>Model Column: <em>Oncoprecisión_base_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Hola Luisa, soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación que estás enfrentando. Permíteme tomar tu nombre y correo electrónico para hacerte algunas preguntas y verificar si podemos ayudarte a través de nuestros ensayos clínicos. ¿Cuál ha sido tu tratamiento hasta ahora?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Hola Luisa, soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación. Permíteme tomar tu nombre y correo electrónico para hacerte algunas preguntas y verificar si podemos ayudarte con un ensayo clínico. ¿Cuál ha sido tu tratamiento hasta ahora?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Hola Luisa, soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación. Para poder ayudarte, necesito tomar tu nombre y correo electrónico y hacerte algunas preguntas sobre tu enfermedad. ¿Te parece bien?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>3</td>
+            <td>Sería excelente que puedan ayudarme. Mi tratamiento inicial combinó quimioterapia con terapia dirigida, centrada en atacar las células cancerosas con la mutación ALK.</td>
+            <td>Gracias por la información. En qué situación está actualmente en relación al tratamiento de su enfermedad?</td>
+            <td>¡Hola! Soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación. Para poder ayudar, necesito tomar tu nombre y correo electrónico. Luego, haré algunas preguntas sobre el cáncer y tratamiento. ¿Cómo te llamas?</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>Sería excelente que puedan ayudarme. Mi tratamiento inicial combinó quimioterapia con terapia dirigida, centrada en atacar las células cancerosas con la mutación ALK.</td>
+            <td>Gracias por la información. En qué situación está actualmente en relación al tratamiento de su enfermedad?</td>
+            <td>Hola, soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación. Para poder ayudarle, necesitaría su nombre y correo electrónico. Luego, haré unas preguntas sobre su enfermedad. ¿Está de acuerdo?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Hola Luisa, soy Julieta, la Secretaria de Oncoprecisión. Lamento mucho la situación que estás enfrentando. Permíteme tomar tu nombre y correo electrónico para hacerte algunas preguntas y verificar si podemos ayudarte a través de nuestros ensayos clínicos. ¿Cuál ha sido tu tratamiento hasta ahora?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+      <h3>Model Column: <em>Oncoprecisión_fine_tuned_grade</em></h3>
+      
+      <!-- Best n -->
+      <h4>Best Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>Hoy en día, sigo recibiendo tratamiento con terapias dirigidas, junto con cuidados paliativos para manejar los síntomas y mejorar mi comodidad. Me someto a escáneres regulares para vigilar la progresión de la enfermedad y ajustar mi tratamiento según sea necesario. Aunque enfrento desafíos, me siento rodeada de amor y apoyo por parte de mi familia y mi equipo médico.</td>
+            <td>Hemos guardado bien su información. Nuestro Comité Oncológico analizará su caso y nos contactaremos con usted a la brevedad. Muchas gracias por preferir a Oncopresición.</td>
+            <td>Hemos guardado bien su información. Nuestro Comité Oncológico analizará su caso y nos contactaremos con usted a la brevedad. Muchas gracias por preferir a Oncopresición.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿Qué tratamientos has recibido hasta ahora y si tienes alguna mutación genética conocida, como ALK o EGFR?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿Qué tratamientos ha recibido hasta ahora y tiene alguna mutación genética conocida, como ALK o EGFR?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+      <!-- Worst n -->
+      <h4>Worst Cases</h4>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Machine Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿Qué tratamientos has recibido hasta ahora y si tienes alguna mutación genética conocida, como ALK o EGFR?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿Qué tratamientos ha recibido hasta ahora y tiene alguna mutación genética conocida, como ALK o EGFR?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, soy Luisa. Hace un año, recibí el diagnóstico de cáncer de pulmón en etapa IV.</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+            <td>Lamento mucho la situación. Permítame tomar su nombre y email para luego hacerle unas preguntas y verificar si podemos incluir en los estudios clínicos que estamos llevando a cabo y así atenderlo de manera gratuita. ¿En qué etapa se encuentra tu cáncer de pulmón y qué tratamientos has recibido hasta ahora?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+    
+  </div>
+
+</div>
+</body>
+</html>
