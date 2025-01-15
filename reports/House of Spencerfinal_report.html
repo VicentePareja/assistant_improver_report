@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Analysis Report</title>
+  <!-- Use the project_name in the title -->
+  <title>House of Spencer Analysis Report</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,15 +40,25 @@
     .best-worst-section td {
       text-align: left;
     }
+    .largest-diff-section table {
+      margin-top: 1rem;
+    }
+    .largest-diff-section th {
+      background-color: #f9f9f9;
+    }
+    .largest-diff-section td {
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Analysis Report</h1>
+  <!-- 1. Page Title -->
+  <h1>House of Spencer - Analysis Report</h1>
 
-  <!-- 1. Summary Statistics -->
+  <!-- 2. Summary Statistics -->
   <h2>1. Summary Statistics</h2>
-  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <p>The table below shows descriptive statistics (including percentiles) for each model’s grades:</p>
   <table>
     <thead>
       <tr>
@@ -63,7 +74,6 @@
       
       
       <tr>
-        
         
         <td>count</td>
 
@@ -86,7 +96,6 @@
       
       <tr>
         
-        
         <td>mean</td>
 
         
@@ -107,7 +116,6 @@
       </tr>
       
       <tr>
-        
         
         <td>std</td>
 
@@ -130,7 +138,6 @@
       
       <tr>
         
-        
         <td>min</td>
 
         
@@ -151,7 +158,6 @@
       </tr>
       
       <tr>
-        
         
         <td>25%</td>
 
@@ -174,7 +180,6 @@
       
       <tr>
         
-        
         <td>50%</td>
 
         
@@ -196,7 +201,6 @@
       
       <tr>
         
-        
         <td>75%</td>
 
         
@@ -217,7 +221,6 @@
       </tr>
       
       <tr>
-        
         
         <td>max</td>
 
@@ -241,7 +244,7 @@
     </tbody>
   </table>
 
-  <!-- 2. Correlation Matrix -->
+  <!-- 3. Correlation Matrix -->
   <h2>2. Correlation Matrix</h2>
   <p>The correlation matrix for the grade columns:</p>
   <table>
@@ -298,7 +301,7 @@
     </tbody>
   </table>
 
-  <!-- 3. Visualizations -->
+  <!-- 4. Visualizations -->
   <h2>3. Visualizations</h2>
   <div class="images-section">
     <h3>Histograms</h3>
@@ -316,13 +319,15 @@
 
     <h3>Boxplot of All Grades</h3>
     <p>Distribution of the listed grade columns:</p>
-    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades (interactive HTML)" 
+         style="border: 2px dashed #999; padding: 8px;" />
+    <p><em>Note:</em> For an interactive boxplot, open <strong>grades_boxplot.html</strong> in a browser.</p>
 
     <h3>Correlation Heatmap</h3>
     <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
   </div>
 
-  <!-- 4. Best & Worst Cases -->
+  <!-- 5. Best & Worst Cases -->
   <h2>4. Best & Worst Cases</h2>
   <div class="best-worst-section">
     
@@ -363,6 +368,27 @@
             <td>¡Hola! 💪 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita en: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Necesitas ayuda con algo más?</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿cómo puedo agendar una clase de entrenamiento funcional?</td>
+            <td>¡Hola! 💪 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita en: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Necesitas ayuda con algo más?</td>
+            <td>¡Hola! 😊 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita aquí: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Te gustaría saber algo más?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>¿Cuánto cuestan las sesiones?</td>
+            <td>Ofrecemos 10 sesiones por $120.000 CLP y 20 sesiones por $220.000 CLP. 🏋️‍♀️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+            <td>¡Hola! 😊 Las sesiones de entrenamiento funcional cuestan: \n\n- 10 sesiones: $120.000 CLP\n- 20 sesiones: $220.000 CLP\n- 4 sesiones: $50.000 CLP\n- 8 sesiones: $95.000 CLP\n- 12 sesiones: $138.000 CLP\n\n¿Te gustaría más información? 🏋️\u200d♀️</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>¿Cuánto cuestan las sesiones?</td>
+            <td>Ofrecemos 10 sesiones por $120.000 CLP y 20 sesiones por $220.000 CLP. 🏋️‍♀️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+            <td>¡Hola! 😊 Las sesiones de entrenamiento funcional cuestan: \n\n- 10 sesiones: $120.000 CLP\n- 20 sesiones: $220.000 CLP\n- 4 sesiones: $50.000 CLP\n- 8 sesiones: $95.000 CLP\n- 12 sesiones: $138.000 CLP \n\nLos planes son de 1 o 2 meses. ¿Te gustaría más información? 🏋️\u200d♂️</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -400,6 +426,27 @@
             <td>Hola</td>
             <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃‍♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
             <td>¡Hola! 😊 Soy de House of Spencer. ¿En qué puedo ayudarte hoy? Puedo resolver dudas sobre horarios, precios, agendar clases y más. 💪</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, ¿son solo clases o se puede ir a entrenar por mi cuenta?</td>
+            <td>¡Hola! 😊 Muchas gracias por escribir a House of Spencer. Tenemos clases guiadas semi-personalizadas y personalizadas. Por el momento no ofrecemos el servicio de Open-Gym. 🏋️‍♀️ ¿Te gustaría venir a una de nuestras clases de prueba gratuita? Agenda aquí: 📲 https://boxmagic.cl/sp/HouseofSpencer24</td>
+            <td>¡Hola! 😊 En House of Spencer ofrecemos clases guiadas semi-personalizadas. Actualmente, no contamos con servicio de Open-Gym. 🏋️\u200d♀️ ¿Te gustaría agendar una clase de prueba gratuita? 📲</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃‍♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+            <td>¡Hola! 😊 Soy de House of Spencer. Estoy aquí para ayudarte con tus dudas sobre entrenamiento, nutrición y más. ¿En qué puedo asistirte hoy? 💪</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃‍♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+            <td>¡Hola! 😊 Soy House of Spencer. ¿Cómo puedo ayudarte hoy? Puedo resolver dudas sobre horarios, precios y nuestros servicios. ¡Cuéntame!</td>
           </tr>
           
         </tbody>
@@ -443,6 +490,27 @@
             <td>¡Hola! 💪 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita en: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Necesitas ayuda con algo más?</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿cómo puedo agendar una clase de entrenamiento funcional?</td>
+            <td>¡Hola! 💪 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita en: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Necesitas ayuda con algo más?</td>
+            <td>¡Hola! 💪 Puedes agendar tu clase a través de la app BoxMagic o en https://auth.boxmagic.cl/. Si no eres alumno, agenda tu clase de prueba gratuita en: 📲 https://boxmagic.cl/sp/HouseofSpencer24. ¿Necesitas ayuda con algo más?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>¿Cuánto cuestan las sesiones?</td>
+            <td>Ofrecemos 10 sesiones por $120.000 CLP y 20 sesiones por $220.000 CLP. 🏋️‍♀️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+            <td>Ofrecemos 10 sesiones por $120.000 CLP y 20 sesiones por $220.000 CLP. 🏋️\u200d♀️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>¿Cuánto cuestan las sesiones?</td>
+            <td>Ofrecemos 10 sesiones por $120.000 CLP y 20 sesiones por $220.000 CLP. 🏋️‍♀️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+            <td>¡Hola! 😊 Nuestras clases de entrenamiento funcional cuestan $120.000 CLP por 10 sesiones y $220.000 CLP por 20 sesiones. 🏋️\u200d♂️ Los planes duran 2 meses. ¿Te gustaría más información?</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -482,12 +550,119 @@
             <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
           </tr>
           
+          <tr>
+            <td>4</td>
+            <td>¿Qué horarios de clases tienen disponibles?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃‍♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃\u200d♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃‍♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+            <td>¡Hola! 😊 En House of Spencer te ayudamos a llegar al siguiente nivel y te acompañamos en todo tu proceso de recuperación ante lesiones o a ponerte en forma. 🏃\u200d♂️ ✨ No solo es ejercicio, es un estilo de vida ✨ ¿Cómo puedo ayudarte hoy? Puedo ayudarte a agendar clases, resolver dudas sobre nuestros servicios y más.</td>
+          </tr>
+          
         </tbody>
       </table>
       
     
   </div>
 
+  <!-- 6. Biggest Difference -->
+  <h2>5. Biggest Differences</h2>
+  <div class="largest-diff-section">
+    <p>Below are the top rows with the largest absolute difference between the <strong>base model</strong> and the <strong>fine-tuned model</strong>:</p>
+    
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Base Grade</th>
+            <th>Fine-tuned Grade</th>
+            <th>Absolute Difference</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Base Answer</th>
+            <th>Fine-tuned Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>¿Qué horarios de clases tienen disponibles?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+            <td>¡Hola! 😊 Tenemos clases de lunes a viernes en los siguientes horarios:\n\n**Mañana:** 6:00, 6:30, 7:30, 8:30  \n**Mediodía:** 10:00, 11:00, 12:00, 13:00  \n**Tarde:** 18:00, 19:00, 20:00  \n\n**Sábado:** 10:00, 11:00.  \n\n¿Te gustaría saber algo más?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>¿Qué horarios de clases tienen disponibles?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+            <td>¡Hola! 😊 Tenemos clases de lunes a viernes en los siguientes horarios:\n\n**Mañana:** 6:00, 6:30, 7:30, 8:30  \n**Mediodía:** 10:00, 11:00, 12:00, 13:00  \n**Tarde:** 18:00, 19:00, 20:00  \n\n**Sábado:** 10:00, 11:00.  \n\n¿Te gustaría más información?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>¿Qué horarios de clases tienen disponibles?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+            <td>¡Hola! 😊 Tenemos clases de lunes a viernes en los siguientes horarios:\n\n**Mañana:** 6:00, 6:30, 7:30, 8:30  \n**Mediodía:** 10:00, 11:00, 12:00, 13:00  \n**Tarde:** 18:00, 19:00, 20:00  \n\n**Sábado:** 10:00, 11:00. \n\n¿Te gustaría saber más?</td>
+            <td>Tenemos clases de lunes a viernes en la mañana, mediodía y tarde, y los sábados en la mañana. 📅 ¿Te gustaría saber los horarios específicos?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>1</td>
+            <td>Hola, ¿son solo clases o se puede ir a entrenar por mi cuenta?</td>
+            <td>¡Hola! 😊 Muchas gracias por escribir a House of Spencer. Tenemos clases guiadas semi-personalizadas y personalizadas. Por el momento no ofrecemos el servicio de Open-Gym. 🏋️‍♀️ ¿Te gustaría venir a una de nuestras clases de prueba gratuita? Agenda aquí: 📲 https://boxmagic.cl/sp/HouseofSpencer24</td>
+            <td>¡Hola! 😊 En House of Spencer ofrecemos clases guiadas semi-personalizadas. Actualmente, no contamos con servicio de Open-Gym. 🏋️\u200d♀️ ¿Te gustaría agendar una clase de prueba gratuita? 📲</td>
+            <td>¡Hola! 😊 No ofrecemos el servicio de Open-Gym. Tenemos clases guiadas semi-personalizadas y personalizadas. 🏋️\u200d♀️ ¿Te gustaría venir a una de nuestras clases de prueba gratuita? Agenda aquí: 📲 https://boxmagic.cl/sp/HouseofSpencer24</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>¿Cómo me inscribo en las clases de entrenamiento funcional?</td>
+            <td>¡Hola! Puedes inscribirte descargando la app BoxMagic en tu celular o visitando https://auth.boxmagic.cl/. 📲 Luego, busca nuestro centro y podrás agendar tus clases. 🏋️‍♀️ Si tienes alguna duda durante el proceso, estoy aquí para ayudarte.</td>
+            <td>¡Hola! 😊 Puedes inscribirte descargando la app BoxMagic en tu celular o visitando https://auth.boxmagic.cl/. 📲 Busca nuestro centro y podrás agendar tus clases. Si necesitas ayuda, estoy aquí para ayudarte. 💪</td>
+            <td>¡Hola! 💪 Puedes inscribirte descargando la app BoxMagic en tu celular o visitando https://auth.boxmagic.cl/. 📲 Si necesitas ayuda durante el proceso, estoy aquí para ayudarte. ¿Necesitas más información?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>¿Qué tipo de centro es House of Spencer?</td>
+            <td>¡Hola! Gracias por contactarnos. 😊 Tenemos un espacio de entrenamiento en Providencia para ayudarte en tus objetivos. 🏋️‍♀️ Nuestra función es enseñar movimiento y mejorar tu biomecánica. De esta forma evitamos posibles lesiones y te ayudamos a conseguir tus objetivos alineando todos los componentes del fitness, entrenamiento y nutrición. 🍏💪</td>
+            <td>¡Hola! 😊 House of Spencer es un centro de entrenamiento en Providencia enfocado en mejorar la biomecánica y enseñar movimiento para evitar lesiones. Ofrecemos clases semi personalizadas, masoterapia y asesorías en nutrición. 🏋️\u200d♀️🍏 ¿Te gustaría saber más sobre algún servicio?</td>
+            <td>¡Hola! 😊 Tenemos un espacio de entrenamiento en Providencia para ayudarte en tus objetivos. 🏋️\u200d♀️ Nuestra función es enseñar movimiento y mejorar tu biomecánica. De esta forma evitamos posibles lesiones y te ayudamos a conseguir tus objetivos alineando todos los componentes del fitness, entrenamiento y nutrición. 🍏💪 ¿Cómo puedo ayudarte hoy?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+  </div>
+
 </div>
 </body>
 </html>
+

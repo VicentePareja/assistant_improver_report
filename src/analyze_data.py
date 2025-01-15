@@ -7,9 +7,6 @@ This script defines a class (DataAnalyzer) that loads the CSV data (as
 configured in parameters.py), performs analysis (descriptive statistics,
 correlations, best/worst cases), creates visualizations, and saves the
 results to disk.
-
-Usage:
-    Called by main.py, or run directly (not typical).
 """
 
 import os
@@ -28,7 +25,8 @@ from src.parameters import (
     RESPONSE_MAP,
     NBESTWORST,
     X_MIN,
-    X_MAX
+    X_MAX,
+    N_HIGHEST_DIFFS
 )
 
 
@@ -55,11 +53,17 @@ class DataAnalyzer:
         response_map : dict
             Mapping from each grade column to its model response column.
         """
+        from src.parameters import NAME_OF_PROJECT
+
+        self.name_of_project = NAME_OF_PROJECT
         self.input_file = input_file
         self.output_dir = output_dir
         self.grade_columns = grade_columns
         self.response_map = response_map
         self.df = pd.DataFrame()
+
+        # We'll use this parameter for the largest difference queries
+        self.number_of_highest_differs = N_HIGHEST_DIFFS
 
         # Ensure the output directory exists
         os.makedirs(self.output_dir, exist_ok=True)
@@ -137,8 +141,14 @@ class DataAnalyzer:
             valid_data = self.df.dropna(subset=[col]).copy()
             valid_data_sorted = valid_data.sort_values(by=col, ascending=True)
 
-            bottom_n_avg = valid_data_sorted.head(n)[col].mean() if len(valid_data_sorted) >= n else np.nan
-            top_n_avg = valid_data_sorted.tail(n)[col].mean() if len(valid_data_sorted) >= n else np.nan
+            bottom_n_avg = (
+                valid_data_sorted.head(n)[col].mean() 
+                if len(valid_data_sorted) >= n else np.nan
+            )
+            top_n_avg = (
+                valid_data_sorted.tail(n)[col].mean() 
+                if len(valid_data_sorted) >= n else np.nan
+            )
 
             top_bottom_dict[col] = {
                 "bottom_n_avg": bottom_n_avg,
@@ -192,7 +202,6 @@ class DataAnalyzer:
         for col in self.grade_columns:
             # Determine the corresponding machine response column
             model_col_name = self.response_map.get(col, None)
-
             if not model_col_name:
                 print(f"Warning: No response column mapped for {col}. Skipping machine responses.")
                 continue
@@ -209,7 +218,7 @@ class DataAnalyzer:
                     "grade": row[col],
                     "question": row.get("question", None),
                     "human_response": row.get("human_response", None),
-                    "machine_response": row.get(model_col_name, "N/A")  # Fetch machine response
+                    "machine_response": row.get(model_col_name, "N/A")
                 })
 
             # Process "worst" cases
@@ -220,15 +229,13 @@ class DataAnalyzer:
                     "grade": row[col],
                     "question": row.get("question", None),
                     "human_response": row.get("human_response", None),
-                    "machine_response": row.get(model_col_name, "N/A")  # Fetch machine response
+                    "machine_response": row.get(model_col_name, "N/A")
                 })
 
         # Convert to DataFrame and save to CSV
         bw_df = pd.DataFrame(bw_rows)
         bw_df.to_csv(output_file, index=False)
         print(f"Best/worst cases saved to: {output_file}")
-
-
 
     def create_distribution_plots(self, x_min=0, x_max=5):
         """
@@ -237,11 +244,9 @@ class DataAnalyzer:
         """
         for col in self.grade_columns:
             plt.figure(figsize=(6, 4))
-            # Histogram only, without KDE
             sns.histplot(self.df[col], kde=False, bins=10, color='blue')
             plt.xlim(x_min, x_max)
 
-            # Plot the mean as a vertical line
             mean_val = self.df[col].mean()
             if not np.isnan(mean_val):
                 plt.axvline(x=mean_val, color='red', linestyle='--', label=f'Mean={mean_val:.2f}')
@@ -257,7 +262,6 @@ class DataAnalyzer:
             plt.close()
             print(f"Histogram saved: {output_path}")
 
-
     def create_boxplots(self, y_min=0, y_max=5):
         """
         Creates boxplots for each grade column using Plotly and saves them to an HTML file.
@@ -266,32 +270,19 @@ class DataAnalyzer:
         if not valid_data.empty:
             fig = go.Figure()
 
-            # Add box plots for each grade column
             for col in self.grade_columns:
-                fig.add_trace(go.Box(
-                    y=valid_data[col],
-                    name=col,
-                    boxmean=True  # Show mean on the boxplot
-                ))
+                fig.add_trace(go.Box(y=valid_data[col], name=col, boxmean=True))
 
-            # Update layout for better appearance
             fig.update_layout(
                 title="Box Plot of Grades",
-                yaxis=dict(
-                    title="Score",
-                    range=[y_min, y_max]
-                ),
-                xaxis=dict(
-                    title="Grade Columns"
-                ),
+                yaxis=dict(title="Score", range=[y_min, y_max]),
+                xaxis=dict(title="Grade Columns"),
                 template="plotly_white"
             )
 
-            # Save the plot to an HTML file
             output_path = os.path.join(self.output_dir, "grades_boxplot.html")
             fig.write_html(output_path)
             print(f"Boxplot saved: {output_path}")
-            
         else:
             print("No valid numeric data found for boxplots. Skipping boxplot creation.")
 
@@ -309,32 +300,78 @@ class DataAnalyzer:
         plt.close()
         print(f"Correlation heatmap saved: {output_path}")
 
-    def run_analysis(self, n_best_worst=3):
+    # -------------------------------------------------------------------------
+    # METHODS FOR LARGEST DIFFERENCE BETWEEN BASE & FINE-TUNED GRADES
+    # -------------------------------------------------------------------------
+    def find_largest_difference(self, base_col=None, finetuned_col=None, n=6):
         """
-        Full pipeline:
-          1. Load data
-          2. Descriptive statistics
-          3. Best/worst entries
-          4. Correlation
-          5. Visualization
-          6. Save everything
+        Finds the top n rows with the biggest absolute difference between two grade columns.
+
+        By default, uses columns:
+          NAME_OF_PROJECT_base_grade
+          NAME_OF_PROJECT_fine_tuned_grade
         """
-        # 1. Load
+        if base_col is None:
+            base_col = f"{self.name_of_project}_base_grade"
+        if finetuned_col is None:
+            finetuned_col = f"{self.name_of_project}_fine_tuned_grade"
+
+        if base_col not in self.df.columns or finetuned_col not in self.df.columns:
+            print(f"Warning: columns ({base_col}, {finetuned_col}) not found. Skipping.")
+            return pd.DataFrame()
+
+        df_filtered = self.df.dropna(subset=[base_col, finetuned_col]).copy()
+
+        diff_col_name = "abs_diff"
+        df_filtered[diff_col_name] = (df_filtered[base_col] - df_filtered[finetuned_col]).abs()
+
+        df_sorted = df_filtered.sort_values(by=diff_col_name, ascending=False)
+        return df_sorted.head(n)
+
+    def save_largest_difference(self, diff_df, base_col, finetuned_col, output_file):
+        """
+        Saves the rows with the largest difference to a CSV file, with columns in NAME_OF_PROJECT_x format.
+        """
+        if diff_df.empty:
+            print("No largest difference data to save (DataFrame is empty).")
+            return
+
+        # Derive the answer columns from the grade columns
+        base_answer_col = base_col.replace("_grade", "_answer")
+        finetuned_answer_col = finetuned_col.replace("_grade", "_answer")
+
+        # Keep them all in the NAME_OF_PROJECT_x format
+        selected_cols = [
+            base_col,
+            finetuned_col,
+            "abs_diff",
+            "question",
+            "human_response",
+            base_answer_col,
+            finetuned_answer_col
+        ]
+        selected_cols = [c for c in selected_cols if c in diff_df.columns]
+
+        # Write them out exactly as is (no rename):
+        diff_df[selected_cols].to_csv(output_file, index=False)
+        print(f"Largest difference cases saved to: {output_file}")
+
+    def run_analysis(self, n_best_worst=6):
+        """
+        1. Load data
+        2. Summaries
+        3. Best/worst
+        4. Correlation
+        5. Visualization
+        6. Save everything
+        7. Largest difference
+        """
         self.load_data()
-
-        # 2. Descriptive Stats
         stats_dict = self.summarize_grades()
-
-        # 3. Best/Worst
         best_worst_dict = self.find_best_worst(n=n_best_worst)
-
-        # 4. Top/Bottom averages
         top_bottom_dict = self.compute_top_bottom_averages(n=n_best_worst)
-
-        # 5. Correlation
         corr_df = self.correlation_analysis()
 
-        # Print summary to console
         print("\n===== DESCRIPTIVE STATISTICS =====")
         for col in self.grade_columns:
             col_stats = stats_dict[col]
@@ -347,23 +384,19 @@ class DataAnalyzer:
             print(f"  50%:   {col_stats['50%']}")
             print(f"  75%:   {col_stats['75%']}")
             print(f"  Max:   {col_stats['max']}")
-
             print(f"  --> Bottom {n_best_worst} Avg: {top_bottom_dict[col]['bottom_n_avg']}")
             print(f"  --> Top {n_best_worst} Avg: {top_bottom_dict[col]['top_n_avg']}")
 
         print("\n===== CORRELATION MATRIX =====")
         print(corr_df)
 
-        # 6. Save outputs
-        # Descriptive stats
+        # Save stats/correlation/best-worst
         summary_file = os.path.join(self.output_dir, "metrics_summary.csv")
         self.save_descriptive_statistics(stats_dict, summary_file)
 
-        # Correlation
         corr_file = os.path.join(self.output_dir, "correlation_matrix.csv")
         self.save_correlation_matrix(corr_df, corr_file)
 
-        # Best/Worst
         bw_file = os.path.join(self.output_dir, "best_worst_cases.csv")
         self.save_best_worst_cases(best_worst_dict, bw_file)
 
@@ -372,14 +405,24 @@ class DataAnalyzer:
         self.create_boxplots(y_min=X_MIN, y_max=X_MAX)
         self.create_correlation_heatmap(corr_df)
 
+        # 7. Largest difference
+        largest_diff_df = self.find_largest_difference(
+            base_col=None,
+            finetuned_col=None,
+            n=self.number_of_highest_differs
+        )
+        diff_file = os.path.join(self.output_dir, "largest_diff_cases.csv")
+        self.save_largest_difference(
+            diff_df=largest_diff_df,
+            base_col=f"{self.name_of_project}_base_grade",
+            finetuned_col=f"{self.name_of_project}_fine_tuned_grade",
+            output_file=diff_file
+        )
+
         print("\nAnalysis complete. All results are saved to:", self.output_dir)
 
 
 def main():
-    """
-    Optional: If you run this file directly, we'll execute the analysis.
-    Typically, you'd call this from a separate 'main.py' or CLI script.
-    """
     analyzer = DataAnalyzer(
         input_file=RAW_DATA_FILE,
         output_dir=PROCESSED_DATA_DIR,

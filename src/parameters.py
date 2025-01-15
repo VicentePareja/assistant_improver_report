@@ -32,7 +32,7 @@ RESPONSE_MAP = {
 }
 
 # Number of best/worst samples to retrieve in the analysis
-NBESTWORST = 3
+NBESTWORST = 6
 
 # ------------------------------------------------------------------------------
 # Plotting Parameters
@@ -40,3 +40,8 @@ NBESTWORST = 3
 # Score axis limits (for histograms and boxplots)
 X_MIN = 0
 X_MAX = 5
+
+# ------------------------------------------------------------------------------
+# Number of highest-difference questions to retrieve
+# ------------------------------------------------------------------------------
+N_HIGHEST_DIFFS = 6

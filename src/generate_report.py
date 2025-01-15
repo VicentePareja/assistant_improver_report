@@ -6,8 +6,8 @@ generate_report.py
 Generate an HTML report using the summary statistics, correlation matrix,
 and best/worst cases produced by analyze_data.py.
 
-Renders data into `report_template.html` (stored in src/templates) and saves
-the result to `reports/final_report.html`.
+It now also loads "largest_diff_cases.csv" and displays those rows in the
+final HTML report.
 
 Usage:
     python generate_report.py
@@ -16,7 +16,6 @@ Usage:
 import os
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader
-from src.parameters import NAME_OF_PROJECT
 
 
 class ReportGenerator:
@@ -24,10 +23,10 @@ class ReportGenerator:
     A class responsible for generating an HTML report from processed data files.
 
     Steps:
-      1. Load CSV data (summary statistics, correlation matrix, best/worst cases).
+      1. Load CSV data (summary statistics, correlation matrix, best/worst cases, largest diff).
       2. Convert DataFrame formats for Jinja2 template rendering.
       3. Render an HTML report from `report_template.html`.
-      4. Save the final HTML report to `reports/final_report.html`.
+      4. Save the final HTML report to `reports/{NAME_OF_PROJECT}final_report.html`.
     """
 
     def __init__(self, base_dir=None):
@@ -40,6 +39,7 @@ class ReportGenerator:
             The base directory for the project. If not provided, it is inferred
             from the location of this file.
         """
+        from src.parameters import NAME_OF_PROJECT
         # ---------------------------------------------------------------------
         # 1. Set up base paths
         # ---------------------------------------------------------------------
@@ -49,6 +49,7 @@ class ReportGenerator:
                 os.path.join(os.path.dirname(__file__), "..", "..")
             )
         self.base_dir = base_dir
+        self.name_of_project = NAME_OF_PROJECT
 
         # Data paths
         self.processed_dir = os.path.join(self.base_dir, "data", "processed")
@@ -65,10 +66,13 @@ class ReportGenerator:
         self.summary_csv = os.path.join(self.processed_dir, "metrics_summary.csv")
         self.corr_csv = os.path.join(self.processed_dir, "correlation_matrix.csv")
         self.best_worst_csv = os.path.join(self.processed_dir, "best_worst_cases.csv")
+        self.largest_diff_csv = os.path.join(self.processed_dir, "largest_diff_cases.csv")
 
         # Template and final output
         self.template_file = "report_template.html"
-        self.output_file = os.path.join(self.reports_dir, f"{NAME_OF_PROJECT}final_report.html")
+        self.output_file = os.path.join(
+            self.reports_dir, f"{self.name_of_project}final_report.html"
+        )
 
         # ---------------------------------------------------------------------
         # 3. DataFrames (to be loaded in load_data())
@@ -76,11 +80,13 @@ class ReportGenerator:
         self.summary_df = None
         self.corr_df = None
         self.best_worst_df = None
+        self.largest_diff_df = None
 
         # Data structures for template rendering
-        self.summary_data = {}       # dict of lists
-        self.best_worst_dict = {}    # nested dict
-        self.grade_columns = []      # list of grade column names
+        self.summary_data = {}         # dict of lists for summary metrics
+        self.best_worst_dict = {}      # nested dict for best/worst
+        self.grade_columns = []        # list of grade column names
+        self.largest_diff_records = [] # list of dicts for largest-diff rows
 
     def load_data(self):
         """
@@ -88,6 +94,7 @@ class ReportGenerator:
           - summary_df: Statistics summary (metrics_summary.csv)
           - corr_df: Correlation matrix (correlation_matrix.csv)
           - best_worst_df: Best and worst cases (best_worst_cases.csv)
+          - largest_diff_df: Biggest differences between base & fine-tuned
         """
         print(f"Loading summary from {self.summary_csv}")
         self.summary_df = pd.read_csv(self.summary_csv)
@@ -97,6 +104,13 @@ class ReportGenerator:
 
         print(f"Loading best/worst data from {self.best_worst_csv}")
         self.best_worst_df = pd.read_csv(self.best_worst_csv)
+
+        if os.path.exists(self.largest_diff_csv):
+            print(f"Loading largest-diff data from {self.largest_diff_csv}")
+            self.largest_diff_df = pd.read_csv(self.largest_diff_csv)
+        else:
+            print("Warning: largest_diff_cases.csv not found. Skipping.")
+            self.largest_diff_df = pd.DataFrame()
 
     def prepare_summary_data(self):
         """
@@ -131,6 +145,15 @@ class ReportGenerator:
                 "worst": worst_records
             }
 
+    def prepare_largest_diff_data(self):
+        """
+        Convert the largest_diff_df to a list of dict records for Jinja2 rendering.
+        """
+        if self.largest_diff_df is not None and not self.largest_diff_df.empty:
+            self.largest_diff_records = self.largest_diff_df.to_dict(orient="records")
+        else:
+            self.largest_diff_records = []
+
     def render_html(self):
         """
         Render the final HTML from the Jinja2 template using the prepared data.
@@ -144,24 +167,22 @@ class ReportGenerator:
         template = env.get_template(self.template_file)
 
         # We'll pass processed_dir as a *relative path* so images load in the final HTML.
-        # In the template, we can reference: {{ processed_dir }}/filename.png
-        # Because final_report.html is saved in `reports/`, which is at the same level
-        # as `data/processed/`? Actually it’s up one level and over, so we might do "../data/processed"
-        # But let's keep it consistent:
         relative_processed_dir = os.path.join("..", "data", "processed")
 
         html_content = template.render(
+            project_name=self.name_of_project,
             summary_df=self.summary_data,
             corr_df=self.corr_df,
             grade_columns=self.grade_columns,
             processed_dir=relative_processed_dir,
-            best_worst_dict=self.best_worst_dict
+            best_worst_dict=self.best_worst_dict,
+            largest_diff_records=self.largest_diff_records
         )
         return html_content
 
     def save_html_report(self, html_content):
         """
-        Write the rendered HTML to `final_report.html`.
+        Write the rendered HTML to the final_report.html file.
 
         Parameters
         ----------
@@ -177,12 +198,14 @@ class ReportGenerator:
         Orchestrate the report generation process:
           1. Load data from CSVs.
           2. Prepare summary and best/worst data for Jinja2.
-          3. Render HTML.
-          4. Save the final report.
+          3. Prepare largest-diff data.
+          4. Render HTML.
+          5. Save the final report.
         """
         self.load_data()
         self.prepare_summary_data()
         self.prepare_best_worst_data()
+        self.prepare_largest_diff_data()
         html = self.render_html()
         self.save_html_report(html)
 

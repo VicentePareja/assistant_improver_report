@@ -4,13 +4,7 @@ import os
 # Adjust if these are in src/
 from src.analyze_data import DataAnalyzer
 from src.generate_report import ReportGenerator
-from src.parameters import (
-    RAW_DATA_FILE,
-    PROCESSED_DATA_DIR,
-    GRADE_COLUMNS,
-    RESPONSE_MAP,
-    NBESTWORST
-)
+
 
 
 def main():
@@ -19,6 +13,13 @@ def main():
       1) Running the analysis (generating CSV/plots in data/processed)
       2) Generating the HTML report into reports/final_report.html
     """
+    from src.parameters import (
+    RAW_DATA_FILE,
+    PROCESSED_DATA_DIR,
+    GRADE_COLUMNS,
+    RESPONSE_MAP,
+    NBESTWORST
+    )   
 
     # 1. Run the analysis
     analyzer = DataAnalyzer(

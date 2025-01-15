@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Analysis Report</title>
+  <!-- Use the project_name in the title -->
+  <title>MyU Analysis Report</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,15 +40,25 @@
     .best-worst-section td {
       text-align: left;
     }
+    .largest-diff-section table {
+      margin-top: 1rem;
+    }
+    .largest-diff-section th {
+      background-color: #f9f9f9;
+    }
+    .largest-diff-section td {
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Analysis Report</h1>
+  <!-- 1. Page Title -->
+  <h1>MyU - Analysis Report</h1>
 
-  <!-- 1. Summary Statistics -->
+  <!-- 2. Summary Statistics -->
   <h2>1. Summary Statistics</h2>
-  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <p>The table below shows descriptive statistics (including percentiles) for each model’s grades:</p>
   <table>
     <thead>
       <tr>
@@ -63,7 +74,6 @@
       
       
       <tr>
-        
         
         <td>count</td>
 
@@ -86,7 +96,6 @@
       
       <tr>
         
-        
         <td>mean</td>
 
         
@@ -107,7 +116,6 @@
       </tr>
       
       <tr>
-        
         
         <td>std</td>
 
@@ -130,7 +138,6 @@
       
       <tr>
         
-        
         <td>min</td>
 
         
@@ -151,7 +158,6 @@
       </tr>
       
       <tr>
-        
         
         <td>25%</td>
 
@@ -174,7 +180,6 @@
       
       <tr>
         
-        
         <td>50%</td>
 
         
@@ -196,7 +201,6 @@
       
       <tr>
         
-        
         <td>75%</td>
 
         
@@ -217,7 +221,6 @@
       </tr>
       
       <tr>
-        
         
         <td>max</td>
 
@@ -241,7 +244,7 @@
     </tbody>
   </table>
 
-  <!-- 2. Correlation Matrix -->
+  <!-- 3. Correlation Matrix -->
   <h2>2. Correlation Matrix</h2>
   <p>The correlation matrix for the grade columns:</p>
   <table>
@@ -298,7 +301,7 @@
     </tbody>
   </table>
 
-  <!-- 3. Visualizations -->
+  <!-- 4. Visualizations -->
   <h2>3. Visualizations</h2>
   <div class="images-section">
     <h3>Histograms</h3>
@@ -316,13 +319,15 @@
 
     <h3>Boxplot of All Grades</h3>
     <p>Distribution of the listed grade columns:</p>
-    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades (interactive HTML)" 
+         style="border: 2px dashed #999; padding: 8px;" />
+    <p><em>Note:</em> For an interactive boxplot, open <strong>grades_boxplot.html</strong> in a browser.</p>
 
     <h3>Correlation Heatmap</h3>
     <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
   </div>
 
-  <!-- 4. Best & Worst Cases -->
+  <!-- 5. Best & Worst Cases -->
   <h2>4. Best & Worst Cases</h2>
   <div class="best-worst-section">
     
@@ -361,6 +366,45 @@
             <td>¡Hola!</td>
             <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
             <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>¡Hola!</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito solicitar una mantención para mis equipos de aire acondicionado.</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: M&U o Tercero) Tipo de equipo 🔧 (Opciones: Split o Multi-Split)</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. Para ayudarte, necesito que me indiques los siguientes datos:
+
+Nombre completo 📝  
+Dirección 🏠  
+Comuna 📍  
+Correo electrónico 📧  
+Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro)  
+Número de equipos 🔢  
+¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero")  
+Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, necesito solicitar una mantención para mis equipos de aire acondicionado.</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: M&U o Tercero) Tipo de equipo 🔧 (Opciones: Split o Multi-Split)</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. Para ayudarte, necesito que me indiques los siguientes datos:
+
+- Nombre completo 📝
+- Dirección 🏠
+- Comuna 📍
+- Correo electrónico 📧
+- Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro)
+- Número de equipos 🔢
+- ¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero")
+- Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")</td>
           </tr>
           
         </tbody>
@@ -404,6 +448,27 @@
 Solicitando mantención...</td>
           </tr>
           
+          <tr>
+            <td>3</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 Ahora, necesito confirmar el número de equipos y proceder con la solicitud de mantención. ¿Podrías indicarme el número de boleta o factura de los equipos?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Sí, el número de boleta es N°123456.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+            <td>¡Perfecto! 🎉 Ahora procederé a registrar tus datos. Por favor, indícame el número de equipos y la dirección completa. 😊</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Sí, el número de boleta es N°123456.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+            <td>¡Perfecto! 🎉 Ahora, solo necesito que me indiques el número de equipos y la marca de los mismos para completar la solicitud de mantención. 😊</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -445,6 +510,27 @@ Solicitando mantención...</td>
             <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>¡Hola!</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. ¿En qué puedo ayudarte hoy? 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Sí, el número de boleta es N°123456.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Sí, el número de boleta es N°123456.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -484,12 +570,134 @@ Solicitando mantención...</td>
             <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
           </tr>
           
+          <tr>
+            <td>1</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito solicitar una mantención para mis equipos de aire acondicionado.</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: M&U o Tercero) Tipo de equipo 🔧 (Opciones: Split o Multi-Split)</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero") Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito solicitar una mantención para mis equipos de aire acondicionado.</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: M&U o Tercero) Tipo de equipo 🔧 (Opciones: Split o Multi-Split)</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero") Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")</td>
+          </tr>
+          
         </tbody>
       </table>
       
     
   </div>
 
+  <!-- 6. Biggest Difference -->
+  <h2>5. Biggest Differences</h2>
+  <div class="largest-diff-section">
+    <p>Below are the top rows with the largest absolute difference between the <strong>base model</strong> and the <strong>fine-tuned model</strong>:</p>
+    
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Base Grade</th>
+            <th>Fine-tuned Grade</th>
+            <th>Absolute Difference</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Base Answer</th>
+            <th>Fine-tuned Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 Procederé a registrar tu solicitud de mantención. Un momento, por favor. 
+
+Solicitando mantención...</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>3</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 Procederé a registrar tu solicitud de mantención. Un momento, por favor. 
+
+Solicitando mantención...</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 Ahora, procederé a registrar tu solicitud de mantención. Un momento, por favor. 
+
+Solicitando mantención...</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+            <td>Mi nombre es Ana López, vivo en Calle Falsa 123, comuna de Providencia. Mi email es analopez@gmail.com. Tengo 2 equipos Samsung tipo Split instalados por M&U.</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+            <td>¡Gracias por la información, Ana! 📝 Ahora, necesito confirmar el número de equipos y proceder con la solicitud de mantención. ¿Podrías indicarme el número de boleta o factura de los equipos?</td>
+            <td>¡Gracias por la información, Ana! 📝 ¿Podrías proporcionarme también el número de boleta o factura de los equipos? Esto me ayudará a confirmar si la mantención está cubierta por la garantía.</td>
+          </tr>
+          
+          <tr>
+            <td>3</td>
+            <td>5</td>
+            <td>2</td>
+            <td>Sí, el número de boleta es N°123456.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+            <td>¡Perfecto! 🎉 Ahora, por favor, indícame el número de equipos que necesitas mantener y la marca de los mismos.</td>
+            <td>¡Perfecto! 🎉 Nuestro equipo se pondrá en contacto contigo pronto para coordinar la visita y realizar la mantención de tus equipos. 😊</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Hola, necesito solicitar una mantención para mis equipos de aire acondicionado.</td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: M&U o Tercero) Tipo de equipo 🔧 (Opciones: Split o Multi-Split)</td>
+            <td>¡Hola! 👋 Bienvenido al servicio al cliente de M&U Soluciones de Climatización 🌬️❄️. Para ayudarte, necesito que me indiques los siguientes datos:
+
+Nombre completo 📝  
+Dirección 🏠  
+Comuna 📍  
+Correo electrónico 📧  
+Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro)  
+Número de equipos 🔢  
+¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero")  
+Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")  </td>
+            <td>¡Claro que sí! 😃 Para ayudarte, necesito que me indiques los siguientes datos: Nombre completo 📝 Dirección 🏠 Comuna 📍 Correo electrónico 📧 Marca de los equipos ❄️ (Ejemplo: Samsung, Midea, Otro) Número de equipos 🔢 ¿Quién instaló los equipos? ⚙️ (Opciones: "M&U" o "Tercero") Tipo de equipo 🔧 (Opciones: "Split" o "Multi-Split")</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+  </div>
+
 </div>
 </body>
 </html>
+

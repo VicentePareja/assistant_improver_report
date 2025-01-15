@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Analysis Report</title>
+  <!-- Use the project_name in the title -->
+  <title>Spencer Consulting Analysis Report</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,15 +40,25 @@
     .best-worst-section td {
       text-align: left;
     }
+    .largest-diff-section table {
+      margin-top: 1rem;
+    }
+    .largest-diff-section th {
+      background-color: #f9f9f9;
+    }
+    .largest-diff-section td {
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Analysis Report</h1>
+  <!-- 1. Page Title -->
+  <h1>Spencer Consulting - Analysis Report</h1>
 
-  <!-- 1. Summary Statistics -->
+  <!-- 2. Summary Statistics -->
   <h2>1. Summary Statistics</h2>
-  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <p>The table below shows descriptive statistics (including percentiles) for each model’s grades:</p>
   <table>
     <thead>
       <tr>
@@ -63,7 +74,6 @@
       
       
       <tr>
-        
         
         <td>count</td>
 
@@ -86,7 +96,6 @@
       
       <tr>
         
-        
         <td>mean</td>
 
         
@@ -107,7 +116,6 @@
       </tr>
       
       <tr>
-        
         
         <td>std</td>
 
@@ -130,7 +138,6 @@
       
       <tr>
         
-        
         <td>min</td>
 
         
@@ -151,7 +158,6 @@
       </tr>
       
       <tr>
-        
         
         <td>25%</td>
 
@@ -174,7 +180,6 @@
       
       <tr>
         
-        
         <td>50%</td>
 
         
@@ -196,7 +201,6 @@
       
       <tr>
         
-        
         <td>75%</td>
 
         
@@ -217,7 +221,6 @@
       </tr>
       
       <tr>
-        
         
         <td>max</td>
 
@@ -241,7 +244,7 @@
     </tbody>
   </table>
 
-  <!-- 2. Correlation Matrix -->
+  <!-- 3. Correlation Matrix -->
   <h2>2. Correlation Matrix</h2>
   <p>The correlation matrix for the grade columns:</p>
   <table>
@@ -298,7 +301,7 @@
     </tbody>
   </table>
 
-  <!-- 3. Visualizations -->
+  <!-- 4. Visualizations -->
   <h2>3. Visualizations</h2>
   <div class="images-section">
     <h3>Histograms</h3>
@@ -316,13 +319,15 @@
 
     <h3>Boxplot of All Grades</h3>
     <p>Distribution of the listed grade columns:</p>
-    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades (interactive HTML)" 
+         style="border: 2px dashed #999; padding: 8px;" />
+    <p><em>Note:</em> For an interactive boxplot, open <strong>grades_boxplot.html</strong> in a browser.</p>
 
     <h3>Correlation Heatmap</h3>
     <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
   </div>
 
-  <!-- 4. Best & Worst Cases -->
+  <!-- 5. Best & Worst Cases -->
   <h2>4. Best & Worst Cases</h2>
   <div class="best-worst-section">
     
@@ -363,6 +368,27 @@
             <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría saber más?</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría más información?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Por favor, indícame tu nombre y correo electrónico para enviarte el link de inscripción.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Por favor, indícame tu nombre y correo para enviarte el link de inscripción.</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -400,6 +426,37 @@
             <td>¡Quiero saber más de sus cursos y talleres!</td>
             <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
             <td>¡Hola! Soy tu asistente de Spencer Consulting. ¿Qué habilidades te gustaría desarrollar? Te puedo contar sobre nuestros cursos y talleres.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Tenemos cursos como Coaching, Magia y Transformación, Magia del Lenguaje y PNL Aplicada. ¿Te gustaría recibir más información por email?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¿Me das más información de las mentorías?</td>
+            <td>Perfecto, te gustaría que te enviemos un correo con más información?</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Nuestras mentorías son: 
+
+1. Desarrollo Liderazgo: Fortalece tu liderazgo y autoestima.
+2. Desarrollo Espiritual: Supera miedos y limitaciones.
+
+¿Te gustaría que te enviemos más información por correo?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¿Me das más información de las mentorías?</td>
+            <td>Perfecto, te gustaría que te enviemos un correo con más información?</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Nuestras mentorías son:
+
+1. Desarrollo Liderazgo: Fortalece tu liderazgo y autoestima.
+2. Desarrollo Espiritual: Supera miedos y limitaciones.
+
+¿Te gustaría que te envíe más información por correo?</td>
           </tr>
           
         </tbody>
@@ -443,6 +500,27 @@
             <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
           </tr>
           
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -482,12 +560,119 @@
             <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
           </tr>
           
+          <tr>
+            <td>4</td>
+            <td>¡Quiero saber más de sus cursos y talleres!</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+            <td>Qué habilidades estás buscando desarrollar? Tenemos el curso de la magia del lenguaje. Perfecto para encausar tu propósito a través del lenguaje.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
         </tbody>
       </table>
       
     
   </div>
 
+  <!-- 6. Biggest Difference -->
+  <h2>5. Biggest Differences</h2>
+  <div class="largest-diff-section">
+    <p>Below are the top rows with the largest absolute difference between the <strong>base model</strong> and the <strong>fine-tuned model</strong>:</p>
+    
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Base Grade</th>
+            <th>Fine-tuned Grade</th>
+            <th>Absolute Difference</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Base Answer</th>
+            <th>Fine-tuned Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría saber más?</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Los talleres son grupales o individuales?</td>
+            <td>Tenemos cursos de distintas naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Los cursos son grupales, mientras que las mentorías son individuales. ¿Te gustaría más información sobre alguno?</td>
+            <td>Tenemos cursos de distinta naturaleza. Los cursos abiertos son grupales, pero las mentorías son individuales.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy el asistente de Spencer Consulting. Por favor, indícame tu nombre y correo electrónico para enviarte el link de inscripción.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Por favor, indícame tu nombre y correo electrónico para enviarte el link de inscripción.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Por favor, indícame tu nombre y correo electrónico para enviarte el link de inscripción.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Estoy interesado en el curso de PNL Aplicada.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+            <td>¡Hola! Soy tu asistente de Spencer Consulting. Por favor, indícame tu nombre y correo para enviarte el link de inscripción.</td>
+            <td>Dame tu nombre y correo para registrarlos y enviarte directamente a la página de inscripción.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+  </div>
+
 </div>
 </body>
 </html>
+

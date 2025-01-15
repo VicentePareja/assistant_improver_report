@@ -1,37 +1,44 @@
 # -*- coding: utf-8 -*-
 import subprocess
-import re
-import io
-import chardet
 import os
 
 # Define the list of project names
 project_names = [
     "MyU",
-    #"Ai Bot You",
+    # "Ai Bot You",  # Commented project; won't be processed
     "Spencer Consulting",
     "Oncoprecisión",
     "Laboratorio Biomed",
     "Trayecto Bookstore",
     "Ortodoncia de la Fuente",
-    #"KLIK Muebles",
-    #"Nomad Genetics", esta no va
+    # "KLIK Muebles",  # Skipped project
+    # "Nomad Genetics",  # Explicitly marked to skip
     "House of Spencer"
 ]
-# Path to the parameters.py file
 
-
+# Path to the parameters.py file and main.py script
 parameters_file_path = "src/parameters.py"
+main_script_path = "main.py"
+
+# Log file to capture results
+log_file = "run_log.txt"
+
+# Function to validate the existence of critical files
+def validate_files():
+    if not os.path.exists(parameters_file_path):
+        raise FileNotFoundError(f"Parameters file not found: {parameters_file_path}")
+    if not os.path.exists(main_script_path):
+        raise FileNotFoundError(f"Main script not found: {main_script_path}")
 
 # Function to update the NAME_OF_PROJECT in parameters.py
 def update_project_name(parameters_path, new_project_name):
-    # Force UTF-8 (ignore chardet or other detection)
-    encoding = "utf-8"
+    encoding = "utf-8"  # Use UTF-8 encoding for all file operations
 
-    # Read the file with UTF-8
+    # Read the parameters.py file
     with open(parameters_path, "r", encoding=encoding) as file:
         lines = file.readlines()
-    
+
+    # Update the NAME_OF_PROJECT line
     updated_lines = []
     name_updated = False
     for line in lines:
@@ -40,33 +47,51 @@ def update_project_name(parameters_path, new_project_name):
             name_updated = True
         else:
             updated_lines.append(line)
-    
+
     if not name_updated:
         raise ValueError("NAME_OF_PROJECT variable not found in parameters.py")
-    
-    # Write the updated content back to the file with UTF-8
+
+    # Write the updated content back to the file
     with open(parameters_path, "w", encoding=encoding) as file:
         file.writelines(updated_lines)
 
-
-
-# Loop through each project name, update parameters.py, and run main.py
-for project_name in project_names:
-    print(f"Running for project: {project_name}")
+# Function to run main.py for the given project
+def run_analysis_for_project(project_name):
     try:
-        # Update NAME_OF_PROJECT
+        # Update the project name in parameters.py
         update_project_name(parameters_file_path, project_name)
-        
-        # Force UTF-8 encoding in the subprocess environment
+
+        # Run the main.py script
         subprocess.run(
-            ["python", "main.py"],
+            ["python", main_script_path],
             check=True,
             text=True,
             encoding="utf-8",
             env=dict(os.environ, PYTHONIOENCODING="utf-8", LANG="C.UTF-8")
         )
-
+        return f"SUCCESS: {project_name}"
     except Exception as e:
-        print(f"Error running for project {project_name}: {e}")
+        return f"ERROR: {project_name} - {str(e)}"
 
-print("All projects have been processed.")
+# Main execution loop
+if __name__ == "__main__":
+    try:
+        # Validate the necessary files exist
+        validate_files()
+
+        # Open the log file
+        with open(log_file, "w", encoding="utf-8") as log:
+            for project_name in project_names:
+                print(f"Processing project: {project_name}")
+                if project_name.startswith("#") or not project_name.strip():
+                    log.write(f"SKIPPED: {project_name}\n")
+                    continue
+
+                # Run the analysis for the current project
+                result = run_analysis_for_project(project_name)
+                log.write(result + "\n")
+                print(result)
+
+        print(f"All projects processed. Log written to: {log_file}")
+    except Exception as overall_error:
+        print(f"Critical error: {overall_error}")

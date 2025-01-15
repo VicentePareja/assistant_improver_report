@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Analysis Report</title>
+  <!-- Use the project_name in the title -->
+  <title>Ortodoncia de la Fuente Analysis Report</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,15 +40,25 @@
     .best-worst-section td {
       text-align: left;
     }
+    .largest-diff-section table {
+      margin-top: 1rem;
+    }
+    .largest-diff-section th {
+      background-color: #f9f9f9;
+    }
+    .largest-diff-section td {
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Analysis Report</h1>
+  <!-- 1. Page Title -->
+  <h1>Ortodoncia de la Fuente - Analysis Report</h1>
 
-  <!-- 1. Summary Statistics -->
+  <!-- 2. Summary Statistics -->
   <h2>1. Summary Statistics</h2>
-  <p>The table below shows the descriptive statistics (including percentiles) for each model’s grades.</p>
+  <p>The table below shows descriptive statistics (including percentiles) for each model’s grades:</p>
   <table>
     <thead>
       <tr>
@@ -63,7 +74,6 @@
       
       
       <tr>
-        
         
         <td>count</td>
 
@@ -86,7 +96,6 @@
       
       <tr>
         
-        
         <td>mean</td>
 
         
@@ -107,7 +116,6 @@
       </tr>
       
       <tr>
-        
         
         <td>std</td>
 
@@ -130,7 +138,6 @@
       
       <tr>
         
-        
         <td>min</td>
 
         
@@ -151,7 +158,6 @@
       </tr>
       
       <tr>
-        
         
         <td>25%</td>
 
@@ -174,7 +180,6 @@
       
       <tr>
         
-        
         <td>50%</td>
 
         
@@ -196,7 +201,6 @@
       
       <tr>
         
-        
         <td>75%</td>
 
         
@@ -217,7 +221,6 @@
       </tr>
       
       <tr>
-        
         
         <td>max</td>
 
@@ -241,7 +244,7 @@
     </tbody>
   </table>
 
-  <!-- 2. Correlation Matrix -->
+  <!-- 3. Correlation Matrix -->
   <h2>2. Correlation Matrix</h2>
   <p>The correlation matrix for the grade columns:</p>
   <table>
@@ -298,7 +301,7 @@
     </tbody>
   </table>
 
-  <!-- 3. Visualizations -->
+  <!-- 4. Visualizations -->
   <h2>3. Visualizations</h2>
   <div class="images-section">
     <h3>Histograms</h3>
@@ -316,13 +319,15 @@
 
     <h3>Boxplot of All Grades</h3>
     <p>Distribution of the listed grade columns:</p>
-    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades">
+    <img src="..\data\processed/grades_boxplot.png" alt="Boxplot of grades (interactive HTML)" 
+         style="border: 2px dashed #999; padding: 8px;" />
+    <p><em>Note:</em> For an interactive boxplot, open <strong>grades_boxplot.html</strong> in a browser.</p>
 
     <h3>Correlation Heatmap</h3>
     <img src="..\data\processed/correlation_heatmap.png" alt="Correlation Heatmap">
   </div>
 
-  <!-- 4. Best & Worst Cases -->
+  <!-- 5. Best & Worst Cases -->
   <h2>4. Best & Worst Cases</h2>
   <div class="best-worst-section">
     
@@ -363,6 +368,27 @@
             <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿tienen tratamientos de ortodoncia?</td>
+            <td>Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿tienen tratamientos de ortodoncia?</td>
+            <td>Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻Asistente virtual de Ortodoncia de la Fuente. Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿tienen tratamientos de ortodoncia?</td>
+            <td>Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Sí, ofrecemos tratamientos de ortodoncia, incluyendo brackets metálicos y alineadores. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -393,6 +419,27 @@
             <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
             <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
             <td>¡Hola! Soy Antonia 👩🏻‍💻Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, ¿qué me pueden decir sobre los implantes dentales?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, ¿qué me pueden decir sobre los implantes dentales?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, ¿qué me pueden decir sobre los implantes dentales?</td>
+            <td>Realizamos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+            <td>Ofrecemos implantes dentales para restaurar tanto la funcionalidad como la estética dental. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
           </tr>
           
           <tr>
@@ -443,6 +490,27 @@
             <td>Ofrecemos una variedad de tratamientos de estética facial, incluyendo rinomodelación, aumento de labios, y relleno de ojeras, entre otros. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
           </tr>
           
+          <tr>
+            <td>5</td>
+            <td>Hola, quiero saber más sobre los tratamientos de estética facial.</td>
+            <td>Ofrecemos tratamientos de estética facial como rinomodelación y aumento de labios. Las evaluaciones son gratuitas. ¿Te gustaría agendar una cita?</td>
+            <td>Realizamos diversos tratamientos de estética facial, como rinomodelación, aumento de labios, y relleno de ojeras, entre otros. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿ofrecen atención dental para niños?</td>
+            <td>Sí, contamos con servicios de odontología pediátrica especializados para niños. ¿Te gustaría agendar una evaluación gratuita para tu hijo?</td>
+            <td>Sí, contamos con servicios de odontología pediátrica especializados para niños. ¿Te gustaría agendar una evaluación gratuita para tu hijo?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>Hola, ¿qué opciones tienen para mejorar la estética de mis dientes?</td>
+            <td>Ofrecemos restauraciones estéticas personalizadas, como carillas y coronas, para renovar tu sonrisa. ¿Te gustaría agendar una evaluación gratuita?</td>
+            <td>Ofrecemos restauraciones estéticas personalizadas, como carillas y coronas, para renovar tu sonrisa. Las evaluaciones son gratuitas. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
         </tbody>
       </table>
       
@@ -482,12 +550,119 @@
             <td>En Calama realizamos tratamientos de ortodoncia para alinear dientes de forma precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
           </tr>
           
+          <tr>
+            <td>2</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
         </tbody>
       </table>
       
     
   </div>
 
+  <!-- 6. Biggest Difference -->
+  <h2>5. Biggest Differences</h2>
+  <div class="largest-diff-section">
+    <p>Below are the top rows with the largest absolute difference between the <strong>base model</strong> and the <strong>fine-tuned model</strong>:</p>
+    
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Base Grade</th>
+            <th>Fine-tuned Grade</th>
+            <th>Absolute Difference</th>
+            <th>Question</th>
+            <th>Human Response</th>
+            <th>Base Answer</th>
+            <th>Fine-tuned Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia para alinear dientes de forma precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos tratamientos de ortodoncia en Calama para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>Hola, quiero saber más sobre los tratamientos de ortodoncia en Calama.</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. ¿Te gustaría agendar una evaluación?</td>
+            <td>En Calama realizamos tratamientos de ortodoncia. La evaluación tiene un costo de $15.000, que debe ser transferido 24 horas antes de la atención. Solo atendemos casos de ortodoncia. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos tratamientos de ortodoncia en Calama para alinear los dientes de manera precisa. Las evaluaciones son gratuitas y están disponibles en horario de tarde. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻 Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+          <tr>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Hola, necesito una limpieza dental. ¿Cuáles son sus horarios de atención?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>¡Hola! Soy Antonia 👩🏻‍💻Asistente virtual de Ortodoncia de la Fuente. Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+            <td>Realizamos limpiezas dentales como parte de nuestros servicios de odontología general. Las evaluaciones son gratuitas y estamos disponibles de lunes a viernes de 09:00 a 13:00 y de 14:30 a 19:00. ¿Te gustaría agendar una evaluación?</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+  </div>
+
 </div>
 </body>
 </html>
+
